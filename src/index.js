@@ -58,6 +58,10 @@
         resultNum = oldNum - currentNum;
         break;
 
+      case "multiply":
+        resultNum = oldNum * currentNum;
+        break;
+
       // If equal is pressed without an operator, keep number and continue
       default:
         resultNum = currentNum;
