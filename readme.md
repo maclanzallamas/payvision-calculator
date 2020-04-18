@@ -34,11 +34,11 @@ Our product owner required us new features for this application. We would like t
 
 ### 4. Test automation
 
-We would like to automate testing of this application.
+For this specific case I would implement Unit tests, which are the easiest to implement. As this application does not need integration with an API, integration test here doesnt make much more sense.
 
-- What kind of tests would you implement? Why?
-
-**Bonus**: Implement the tests.
+In particular I would implement 2 kind of units tests:
+- Plain Javascript functions tests. For this we would need to first refactor de code to extract the operator functions outside (as now they are inside functions that modify the DOM).
+- Functions that modify the DOM. We can do units test that mock a click from a user and check what the output is. I have implemented a set of tests, it is just basic. If we wanted to extend this a little bit more and make sure we have a complete coverage, I would randomize what the users clicks, so we can have a different possibility of outputs, which will make our test much more reliable.
 
 ### 5. UI/UX design
 
