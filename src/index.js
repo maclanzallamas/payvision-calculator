@@ -58,6 +58,10 @@
         resultNum = oldNum - currentNum;
         break;
 
+      case "multiply":
+        resultNum = oldNum * currentNum;
+        break;
+
       case "divide":
         resultNum = oldNum / currentNum;
         break;
