@@ -14,53 +14,53 @@
     equals = el("#equals"), // Equal button
     nums = el(".num"), // List of numbers
     ops = el(".ops"), // List of operators
-    theNum = "", // Current number
-    oldNum = "", // First number
-    resultNum, // Result
-    operator; // Batman
+    currentNum = 0, // Current number
+    oldNum = 0, // First number
+    resultNum,
+    operator;
 
   // When: Number is clicked. Get the current number selected
   var setNum = function() {
     if (resultNum) {
       // If a result was displayed, reset number
-      theNum = this.getAttribute("data-num");
-      resultNum = "";
+      currentNum = this.getAttribute("data-num");
+      resultNum = 0;
     } else {
       // Otherwise, add digit to previous number (this is a string!)
-      theNum += this.getAttribute("data-num");
+      currentNum += this.getAttribute("data-num");
     }
 
-    viewer.innerHTML = theNum; // Display current number
+    viewer.innerHTML = currentNum; // Display current number
   };
 
   // When: Operator is clicked. Pass number to oldNum and save operator
   var moveNum = function() {
-    oldNum = theNum;
-    theNum = "";
+    oldNum = currentNum;
+    currentNum = 0;
     operator = this.getAttribute("data-ops");
 
-    equals.setAttribute("data-result", ""); // Reset result in attr
+    equals.setAttribute("data-result", 0); // Reset result in attr
   };
 
   // When: Equals is clicked. Calculate result
   var displayNum = function() {
     // Convert string input to numbers
     oldNum = parseFloat(oldNum);
-    theNum = parseFloat(theNum);
+    currentNum = parseFloat(currentNum);
 
     // Perform operation
     switch (operator) {
       case "plus":
-        resultNum = oldNum - theNum;
+        resultNum = oldNum + currentNum;
         break;
 
       case "minus":
-        resultNum = oldNum + theNum;
+        resultNum = oldNum - currentNum;
         break;
 
       // If equal is pressed without an operator, keep number and continue
       default:
-        resultNum = theNum;
+        resultNum = currentNum;
     }
 
     // If NaN or Infinity returned
@@ -81,14 +81,14 @@
 
     // Now reset oldNum & keep result
     oldNum = 0;
-    theNum = resultNum;
+    currentNum = resultNum;
   };
 
   // When: Clear button is pressed. Clear everything
   var clearAll = function() {
-    oldNum = "";
-    theNum = "";
-    viewer.innerHTML = "0";
+    oldNum = 0;
+    currentNum = 0;
+    viewer.innerHTML = 0;
     equals.setAttribute("data-result", resultNum);
   };
 
