@@ -21,13 +21,21 @@
 
   // When: Number is clicked. Get the current number selected
   var setNum = function() {
+    let value = "";
+    try {
+      value = this.getAttribute("data-num");
+    } catch (error) {
+      //This means the function was called using the keyboard
+      value = this.event.key;
+    }
+
     if (resultNum) {
       // If a result was displayed, reset number
-      currentNum = this.getAttribute("data-num");
+      currentNum = value;
       resultNum = "";
     } else {
       // Otherwise, add digit to previous number (this is a string!)
-      currentNum += this.getAttribute("data-num");
+      currentNum += value;
     }
 
     viewer.innerHTML = currentNum; // Display current number
@@ -35,9 +43,33 @@
 
   // When: Operator is clicked. Pass number to oldNum and save operator
   var moveNum = function() {
+    let valueOperator = "";
+    try {
+      valueOperator = this.getAttribute("data-ops");
+    } catch (error) {
+      //This means the function was called using the keyboard
+      switch (this.event.key) {
+        case "-":
+          valueOperator = "minus";
+          break;
+        case "+":
+          valueOperator = "plus";
+          break;
+        case "/":
+          valueOperator = "divide";
+          break;
+        case "*":
+          valueOperator = "multiply";
+          break;
+      
+        default:
+          break;
+      }
+      
+    }
     oldNum = currentNum;
     currentNum = "";
-    operator = this.getAttribute("data-ops");
+    operator = valueOperator;
 
     equals.setAttribute("data-result", ""); // Reset result in attr
   };
@@ -122,4 +154,20 @@
 
   // Add click event to clear button
   el("#clear").onclick = clearAll;
+
+  // Add listener to the whole page to enable use of keyboard
+  document.addEventListener('keyup', function(event) {
+    if (event.key.match(/[0-9.]/g)) { // Regex to only mach single digits 0 to 9
+      setNum()
+    }
+    if (event.key.match(/[+-/*]/g)) { // Regex to only match operators
+      moveNum()
+    }
+    if (event.key === "=") {
+      displayNum()
+    }
+    if (event.key === "Delete") {
+      clearAll()
+    }
+  });
 })();
