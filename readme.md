@@ -1,58 +1,53 @@
 # Payvision calculator
 
-In this exercise you are given the legacy code of Payvision Calculator web app. Maintainance and new features development is your responsability.
-
-## Your tasks
-
-1. Code review: please list all good/bad practices you find in this application.
-2. It seems the app is buggy... Could you fix it?
-3. Add divide and multiply operations.
-4. How would do you test this app?
-5. Can you improve the UI/UX?
-
-You are allowed to change as much code as you consider.
-
-**Bonus:**
-
-1. Configure the application to allow use of keyboard numpad.
-
 ### 1. Code review
 
-Are you a good code reviewer? This would be one of your daily basis tasks.
+- Index.html does not have the basic html structure (html, head and body tags)
+- Numbers 0 and 3 are misplaced. They should be interchanged
+- Plus and minus functionalities are also the other way around
+- Use meaningful names for the variables. For example "theNum" should be called "currentNumber", this way you don't need to write the comment next to it, as the variable will be self explanatory.
+- Only use meaningful and needed comments. the comment to say that variable resultNum is the result is not needed as the variable is self explanatory. The comment "Batman" does not mean anything!
+- The '&' in css code is a sass functionality, and in pure css you just need to duplicate the class name.
 
-- Help our team, list good and bad practices you find, identify bugs or defects and suggest improvements. How would you refactorize it?
+Refactor:
+- Divide html, css and js in different files for better structure
+- Remove duplicate after selector in calculator class in CSS
 
-Please add code inline comments or include them into your readme file.
+Improvements:
+- ~~If we are always treating with numbers, why create oldNum and theNum variables as strings? We can use numbers and that way we do not need to use parsers.~~ I later realized that we are using strings so we can concatenate numbers in the viewer component!
+- If you want to support IE8 use only one colon for the pseudo-selectors after and before in CSS
 
 ### 2. Testing and bug fixing
 
-Product quality, testing and finding bugs is really important at Payvision. This application seems it does not work fine...
-
-Test it and fix any potential bug you find. Feel free to document your findings in readme file or help yourself with commit messages.
+Fixed the bugs:
+ - Mixed 0 and 3 numbers
+ - Mixed - and + operators
+ - SCSS syntax in css file
+ - broken animation is moving the calculator too far away and making it invisible
 
 ### 3. New features implementation
 
-Our product owner required us new features for this application. We would like the application new version to support multiplications and divisions.
-
-- Could you implement these new features?
-- Bear in mind usage of git-flow to track your changes.
-- Current version is 1.2.2 (see package.json version). Should we increase the version? How? Why?
+- Implemented multiply and divide operations
+- Updated version in package json with 1.3.0. The second digit indicates that we have made a release with new features that does not have breaking changes. Last digit would be used when fixing bugs, and the first digit for mayor releases with breaking changes.
 
 ### 4. Test automation
 
-We would like to automate testing of this application.
+For this specific case I would implement Unit tests, which are the easiest to implement. As this application does not need integration with an API, integration test here doesnt make much more sense.
 
-- What kind of tests would you implement? Why?
-
-**Bonus**: Implement the tests.
+In particular I would implement 2 kind of units tests:
+- Plain Javascript functions tests. For this we would need to first refactor de code to extract the operator functions outside (as now they are inside functions that modify the DOM).
+- Functions that modify the DOM. We can do units test that mock a click from a user and check what the output is. I have implemented a set of tests, it is just basic. If we wanted to extend this a little bit more and make sure we have a complete coverage, I would randomize what the users clicks, so we can have a different possibility of outputs, which will make our test much more reliable.
 
 ### 5. UI/UX design
 
-Do you consider yourself a good designer or UI/UX developer?
+- Order the numbers like a normal calculator
+- Change position of operators
+- Use hover for buttons
+- Create a box for display to resemble a classic calculator
 
-- Improve the UI/UX to be more user friendly.
+**Bonus:**
 
-Feel free to do any changes. Show us what you are capable to!
+Configure the application to allow use of keyboard numpad. **Done** :smile:
 
 ## How to run the application using local server
 
