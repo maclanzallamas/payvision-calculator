@@ -62,6 +62,10 @@
         resultNum = oldNum * currentNum;
         break;
 
+      case "divide":
+        resultNum = oldNum / currentNum;
+        break;
+
       // If equal is pressed without an operator, keep number and continue
       default:
         resultNum = currentNum;
@@ -75,7 +79,12 @@
       } else {
         // If result is infinity, set off by dividing by zero
         resultNum = "Look at what you've done";
-        el("#calculator").classList.add("broken"); // Break calculator
+
+        // Changed the broken animation
+        const element = el("#calculator");
+        element.classList.remove("broken-animation");
+        void element.offsetWidth; // For restarting the application I have used this method: https://css-tricks.com/restart-css-animation/#article-header-id-0
+        element.classList.add("broken-animation");
       }
     }
 

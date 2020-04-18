@@ -23,6 +23,7 @@ Fixed the bugs:
  - Mixed 0 and 3 numbers
  - Mixed - and + operators
  - SCSS syntax in css file
+ - broken animation is moving the calculator too far away and making it invisible
 
 ### 3. New features implementation
 
