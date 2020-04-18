@@ -26,11 +26,8 @@ Fixed the bugs:
 
 ### 3. New features implementation
 
-Our product owner required us new features for this application. We would like the application new version to support multiplications and divisions.
-
-- Could you implement these new features?
-- Bear in mind usage of git-flow to track your changes.
-- Current version is 1.2.2 (see package.json version). Should we increase the version? How? Why?
+- Implemented multiply and divide operations
+- Updated version in package json with 1.3.0. The second digit indicates that we have made a release with new features that does not have breaking changes. Last digit would be used when fixing bugs, and the first digit for mayor releases with breaking changes.
 
 ### 4. Test automation
 
