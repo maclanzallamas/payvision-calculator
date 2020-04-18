@@ -46,8 +46,13 @@ h2 {
   text-align: right;
   text-overflow: ellipsis;
   overflow: hidden;
-  width: 7.5em;
+  width: 9.5em;
   height: 3em;
+  border-style: solid;
+  border-width: thin;
+  margin: 0.25em;
+  padding: 0 0.45rem;
+  box-sizing: border-box;
 }
 
 button {
@@ -61,4 +66,15 @@ button {
   width: 2em;
   height: 2em;
   transition: all 0.5s;
+}
+
+button:hover {
+  background: rgba(42, 50, 113, 0.8);
+}
+
+.emptyBlock {
+  margin: 0.25em;
+  width: 2em;
+  height: 2em;
+  float: left;
 }

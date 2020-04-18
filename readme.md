@@ -40,11 +40,10 @@ In particular I would implement 2 kind of units tests:
 
 ### 5. UI/UX design
 
-Do you consider yourself a good designer or UI/UX developer?
-
-- Improve the UI/UX to be more user friendly.
-
-Feel free to do any changes. Show us what you are capable to!
+- Order the numbers like a normal calculator
+- Change position of operators
+- Use hover for buttons
+- Create a box for display to resemble a classic calculator
 
 **Bonus:**
 
