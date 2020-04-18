@@ -14,14 +14,15 @@ Refactor:
 - Remove duplicate after selector in calculator class in CSS
 
 Improvements:
-- If we are always treating with numbers, why create oldNum and theNum variables as strings? We can use numbers and that way we do not need to use parsers.
+- ~~If we are always treating with numbers, why create oldNum and theNum variables as strings? We can use numbers and that way we do not need to use parsers.~~ I later realized that we are using strings so we can concatenate numbers in the viewer component!
 - If you want to support IE8 use only one colon for the pseudo-selectors after and before in CSS
 
 ### 2. Testing and bug fixing
 
-Product quality, testing and finding bugs is really important at Payvision. This application seems it does not work fine...
-
-Test it and fix any potential bug you find. Feel free to document your findings in readme file or help yourself with commit messages.
+Fixed the bugs:
+ - Mixed 0 and 3 numbers
+ - Mixed - and + operators
+ - SCSS syntax in css file
 
 ### 3. New features implementation
 
