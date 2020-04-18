@@ -49,6 +49,9 @@ In particular I would implement 2 kind of units tests:
 
 Configure the application to allow use of keyboard numpad. **Done** :smile:
 
+## Git graph for the reviewer information
+![Git Graph](images/GitGraph.PNG)
+
 ## How to run the application using local server
 
 To run the project, open a terminal and execute the following command from project root path:
