@@ -1,28 +1,21 @@
 # Payvision calculator
 
-In this exercise you are given the legacy code of Payvision Calculator web app. Maintainance and new features development is your responsability.
-
-## Your tasks
-
-1. Code review: please list all good/bad practices you find in this application.
-2. It seems the app is buggy... Could you fix it?
-3. Add divide and multiply operations.
-4. How would do you test this app?
-5. Can you improve the UI/UX?
-
-You are allowed to change as much code as you consider.
-
-**Bonus:**
-
-1. Configure the application to allow use of keyboard numpad.
-
 ### 1. Code review
 
-Are you a good code reviewer? This would be one of your daily basis tasks.
+- Index.html does not have the basic html structure (html, head and body tags)
+- Numbers 0 and 3 are misplaced. They should be interchanged
+- Plus and minus functionalities are also the other way around
+- Use meaningful names for the variables. For example "theNum" should be called "currentNumber", this way you don't need to write the comment next to it, as the variable will be self explanatory.
+- Only use meaningful and needed comments. the comment to say that variable resultNum is the result is not needed as the variable is self explanatory. The comment "Batman" does not mean anything!
+- The '&' in css code is a sass functionality, and in pure css you just need to duplicate the class name.
 
-- Help our team, list good and bad practices you find, identify bugs or defects and suggest improvements. How would you refactorize it?
+Refactor:
+- Divide html, css and js in different files for better structure
+- Remove duplicate after selector in calculator class in CSS
 
-Please add code inline comments or include them into your readme file.
+Improvements:
+- If we are always treating with numbers, why create oldNum and theNum variables as strings? We can use numbers and that way we do not need to use parsers.
+- If you want to support IE8 use only one colon for the pseudo-selectors after and before in CSS
 
 ### 2. Testing and bug fixing
 
@@ -53,6 +46,10 @@ Do you consider yourself a good designer or UI/UX developer?
 - Improve the UI/UX to be more user friendly.
 
 Feel free to do any changes. Show us what you are capable to!
+
+**Bonus:**
+
+1. Configure the application to allow use of keyboard numpad.
 
 ## How to run the application using local server
 
