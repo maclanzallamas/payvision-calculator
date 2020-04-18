@@ -14,8 +14,8 @@
     equals = el("#equals"), // Equal button
     nums = el(".num"), // List of numbers
     ops = el(".ops"), // List of operators
-    currentNum = 0, // Current number
-    oldNum = 0, // First number
+    currentNum = "", // Current number
+    oldNum = "", // First number
     resultNum,
     operator;
 
@@ -24,7 +24,7 @@
     if (resultNum) {
       // If a result was displayed, reset number
       currentNum = this.getAttribute("data-num");
-      resultNum = 0;
+      resultNum = "";
     } else {
       // Otherwise, add digit to previous number (this is a string!)
       currentNum += this.getAttribute("data-num");
@@ -36,10 +36,10 @@
   // When: Operator is clicked. Pass number to oldNum and save operator
   var moveNum = function() {
     oldNum = currentNum;
-    currentNum = 0;
+    currentNum = "";
     operator = this.getAttribute("data-ops");
 
-    equals.setAttribute("data-result", 0); // Reset result in attr
+    equals.setAttribute("data-result", ""); // Reset result in attr
   };
 
   // When: Equals is clicked. Calculate result
@@ -86,9 +86,9 @@
 
   // When: Clear button is pressed. Clear everything
   var clearAll = function() {
-    oldNum = 0;
-    currentNum = 0;
-    viewer.innerHTML = 0;
+    oldNum = "";
+    currentNum = "";
+    viewer.innerHTML = "0";
     equals.setAttribute("data-result", resultNum);
   };
 
