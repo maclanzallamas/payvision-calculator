@@ -48,7 +48,7 @@ Feel free to do any changes. Show us what you are capable to!
 
 **Bonus:**
 
-1. Configure the application to allow use of keyboard numpad.
+Configure the application to allow use of keyboard numpad. **Done** :smile:
 
 ## How to run the application using local server
 
